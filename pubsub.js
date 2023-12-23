@@ -31,7 +31,11 @@ class PubSub {
     });
   }
   publish({ channel, message }) {
-    this.publisher.publish(channel, message);
+    this.subscriber.subscribe(channel, () => {
+      this.publisher.publish(channel, message, () => {
+        this.subscriber.subscribe(channel);
+      });
+    });
   }
 
   brodcastChain() {
