@@ -28,6 +28,7 @@
     "hex-to-binary": "^1.0.1",
     "pubnub": "^7.4.5",
     "redis": "3.1",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "uuid": "^9.0.1"
   }
 }
