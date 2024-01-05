@@ -48,7 +48,7 @@ class PubSub {
     });
   }
   publish({ channel, message }) {
-    this.subscriber.subscribe(channel, () => {
+    this.subscriber.unsubscribe(channel, () => {
       this.publisher.publish(channel, message, () => {
         this.subscriber.subscribe(channel);
       });
