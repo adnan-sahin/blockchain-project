@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../config";
 import Block from "./Block";
 
-function Blocks() {
+const Blocks = () => {
   const [blocks, setBlocks] = useState([]);
 
   useEffect(() => {
@@ -21,6 +21,6 @@ function Blocks() {
       })}
     </div>
   );
-}
+};
 
 export default Blocks;
