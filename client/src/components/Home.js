@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BASE_URL } from "../config";
-import Blocks from "./Blocks";
 import logo from "../assets/logo.png";
 
-function App() {
+const Home = () => {
   const [walletInfo, setWalletInfo] = useState({ address: null, balance: null });
 
   useEffect(() => {
@@ -23,10 +22,8 @@ function App() {
         <div>Address:{walletInfo.address}</div>
         <div>Balance:{walletInfo.balance}</div>
       </div>
-      <br />
-      <Blocks />
     </div>
   );
-}
+};
 
-export default App;
+export default Home;
