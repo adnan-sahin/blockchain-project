@@ -18,9 +18,7 @@ const REDIS_URL = isDevelopment
 
 const DEFAULT_PORT = 3000;
 
-const ROOT_NODE_ADDRESS = isDevelopment
-  ? `http://localhost:${DEFAULT_PORT}`
-  : "https://infinite-ridge-78058-8f102667ca6c.herokuapp.com";
+const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
 
 const app = express();
 const blockchain = new Blockchain();
