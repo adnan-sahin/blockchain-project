@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { BASE_URL } from "../config";
 import Block from "./Block";
 
 const Blocks = () => {
   const [blocks, setBlocks] = useState([]);
 
   useEffect(() => {
-    fetch(`${BASE_URL}/api/blocks`)
+    fetch(`${document.location.origin}/api/blocks`)
       .then((res) => res.json())
       .then((json) => {
         setBlocks(json);

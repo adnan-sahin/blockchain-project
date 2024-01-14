@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { BASE_URL } from "../config";
 import logo from "../assets/logo.png";
 
 const Home = () => {
   const [walletInfo, setWalletInfo] = useState({ address: null, balance: null });
 
   useEffect(() => {
-    fetch(`${BASE_URL}/api/wallet-info`)
+    fetch(`${document.location.origin}/api/wallet-info`)
       .then((response) => response.json())
       .then((json) => {
         setWalletInfo({ address: json.address, balance: json.balance });

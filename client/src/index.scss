@@ -39,16 +39,29 @@ body {
   padding: 2%;
 }
 
-.nav-bar ul {
-  display: flex;
-  position: fixed;
-  top: 30px;
+.nav-bar {
+  ul {
+    display: flex;
+    position: fixed;
+    top: 30px;
+    li {
+      list-style-type: none;
+      margin: 2px 4px;
+      padding: 2px 6px;
+      font-size: 20px;
+      background-color: #fff;
+      border-radius: 3px;
+    }
+  }
 }
-.nav-bar ul li {
-  list-style-type: none;
-  margin: 2px 5px;
-  padding: 2px 5px;
-  font-size: 20px;
-  background-color: #fff;
-  border-radius: 5px;
+
+.conduct-transaction {
+  margin: 5%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  input {
+    min-width: 500px;
+    margin-bottom: 5px;
+  }
 }

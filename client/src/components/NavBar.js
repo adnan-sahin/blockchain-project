@@ -11,6 +11,12 @@ const NavBar = () => {
         <li>
           <NavLink to="/blocks">Blocks</NavLink>
         </li>
+        <li>
+          <NavLink to="/conduct-transaction">Conduct a Transaction</NavLink>
+        </li>
+        <li>
+          <NavLink to="/transaction-pool">Transaction Pool</NavLink>
+        </li>
       </ul>
     </nav>
   );
