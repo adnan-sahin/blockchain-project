@@ -44,7 +44,7 @@ const TransactionPool = () => {
         );
       })}
       <hr />
-      <Button variant="danger" size="small" onClick={fetchMineTransactions}>
+      <Button variant="info" size="small" onClick={() => fetchMineTransactions()}>
         Mine the Transactions
       </Button>
     </div>

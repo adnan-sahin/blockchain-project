@@ -39,6 +39,25 @@ app.get("/api/blocks", (req, res) => {
   res.json(blockchain.chain);
 });
 
+app.get("/api/blocks/length", (req, res) => {
+  res.json(blockchain.chain.length);
+});
+
+app.get("/api/blocks/:id", (req, res) => {
+  const { id } = req.params;
+  const { length } = blockchain.chain;
+
+  const blockReversed = blockchain.chain.slice().reverse();
+
+  let startIndex = (id - 1) * 5;
+  let endIndex = id * 5;
+
+  startIndex = startIndex < length ? startIndex : length;
+  endIndex = endIndex < length ? endIndex : length;
+
+  res.json(blockReversed.slice(startIndex, endIndex));
+});
+
 app.post("/api/mine", (req, res) => {
   const { data } = req.body;
 
@@ -85,6 +104,19 @@ app.get("/api/wallet-info", (req, res) => {
   res.json({ address, balance: Wallet.calculateBalance({ chain: blockchain.chain, address }) });
 });
 
+app.get("/api/known-addresses", (req, res) => {
+  const addressMap = {};
+
+  for (let block of blockchain.chain) {
+    for (let transaction of block.data) {
+      const recipient = Object.keys(transaction.outputMap);
+
+      recipient.forEach((recipient) => (addressMap[recipient] = recipient));
+    }
+  }
+  res.json(Object.keys(addressMap));
+});
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/dist/index.html"));
 });
@@ -122,7 +154,7 @@ if (isDevelopment) {
   const walletAction3 = () =>
     generateWalletTransaction({ wallet: walletTest2, recipient: wallet.publicKey, amount: 15 });
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 20; i++) {
     if (i % 3 === 0) {
       walletAction1();
       walletAction2();

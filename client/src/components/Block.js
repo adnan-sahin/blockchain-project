@@ -32,14 +32,14 @@ const Block = (props) => {
             ))}
           </div>
           <hr />
-          <Button variant="danger" size="small" onClick={toggleDisplayTransaction}>
+          <Button variant="info" size="small" onClick={toggleDisplayTransaction}>
             Show Less
           </Button>
         </>
       ) : (
         <>
           <div>Data:{displayTransactionData()}</div>
-          <Button variant="danger" size="small" onClick={toggleDisplayTransaction}>
+          <Button variant="info" size="small" onClick={toggleDisplayTransaction}>
             Show More...
           </Button>
         </>
